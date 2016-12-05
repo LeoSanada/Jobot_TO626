@@ -18,7 +18,14 @@
         <activity android:name=".BasicActivity" />
         <activity android:name=".AssessmentActivity" />
         <activity android:name=".BioActivity" />
-        <activity android:name=".CallActivity"></activity>
+        <activity android:name=".CallActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".FeedbackActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".JobActivity" />
+        <activity android:name=".MeetActivity" />
+        <activity android:name=".SchedulingActivity" />
+        <activity android:name=".WikiDbActivity"></activity>
     </application>
 
 </manifest>
