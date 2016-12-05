@@ -10,4 +10,132 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.HistoryActivity">
 
+    <TextView
+        android:text="Name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/textViewName1" />
+
+    <TextView
+        android:text="Job1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewName1"
+        android:layout_alignLeft="@+id/textViewName1"
+        android:layout_alignStart="@+id/textViewName1"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textViewJob1" />
+
+    <TextView
+        android:text="Name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewJob1"
+        android:layout_alignLeft="@+id/textViewJob1"
+        android:layout_alignStart="@+id/textViewJob1"
+        android:layout_marginTop="62dp"
+        android:id="@+id/textViewName2" />
+
+    <TextView
+        android:text="Job2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewName2"
+        android:layout_alignLeft="@+id/textViewName2"
+        android:layout_alignStart="@+id/textViewName2"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textViewJob2" />
+
+    <TextView
+        android:text="Name3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewJob2"
+        android:layout_alignLeft="@+id/textViewJob2"
+        android:layout_alignStart="@+id/textViewJob2"
+        android:layout_marginTop="43dp"
+        android:id="@+id/textViewName3" />
+
+    <TextView
+        android:text="Job3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewName3"
+        android:layout_alignLeft="@+id/textViewName3"
+        android:layout_alignStart="@+id/textViewName3"
+        android:layout_marginTop="21dp"
+        android:id="@+id/textViewJob3" />
+
+    <Button
+        android:text="Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewName1"
+        android:layout_toRightOf="@+id/textViewName1"
+        android:layout_toEndOf="@+id/textViewName1"
+        android:layout_marginLeft="91dp"
+        android:layout_marginStart="91dp"
+        android:id="@+id/buttonProfile1" />
+
+    <Button
+        android:text="Chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonProfile1"
+        android:layout_toRightOf="@+id/buttonProfile1"
+        android:layout_toEndOf="@+id/buttonProfile1"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:id="@+id/buttonChat1" />
+
+    <Button
+        android:text="Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textViewName2"
+        android:layout_alignLeft="@+id/buttonProfile1"
+        android:layout_alignStart="@+id/buttonProfile1"
+        android:id="@+id/buttonProfile2" />
+
+    <Button
+        android:text="Chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonProfile2"
+        android:layout_alignRight="@+id/buttonChat1"
+        android:layout_alignEnd="@+id/buttonChat1"
+        android:id="@+id/buttonChat2" />
+
+    <Button
+        android:text="Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textViewJob3"
+        android:layout_alignLeft="@+id/buttonProfile2"
+        android:layout_alignStart="@+id/buttonProfile2"
+        android:id="@+id/buttonProfile3" />
+
+    <Button
+        android:text="Chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonProfile3"
+        android:layout_alignLeft="@+id/buttonChat2"
+        android:layout_alignStart="@+id/buttonChat2"
+        android:id="@+id/buttonChat3" />
+
+    <Button
+        android:text="Next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonProfile3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:id="@+id/buttonNext" />
 </RelativeLayout>
