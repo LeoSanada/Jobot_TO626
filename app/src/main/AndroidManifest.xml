@@ -15,7 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BasicActivity"></activity>
+        <activity android:name=".BasicActivity" />
+        <activity android:name=".AssessmentActivity" />
+        <activity android:name=".BioActivity" />
+        <activity android:name=".CallActivity"></activity>
     </application>
 
 </manifest>
