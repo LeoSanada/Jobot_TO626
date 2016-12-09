@@ -38,11 +38,11 @@ public class BasicActivity extends Activity implements View.OnClickListener{
         radioButtonTeacher = (RadioButton) findViewById(R.id.radioButtonTeacher);
 
         buttonSignin.setOnClickListener(this);
-        radioButtonDoctor.setOnClickListener(this);
-        radioButtonTeacher.setOnClickListener(this);
-        radiobuttonStudent.setOnClickListener(this);
-        radioButtonLawyer.setOnClickListener(this);
-        radioButtonEngineer.setOnClickListener(this);
+   //     radioButtonDoctor.setOnClickListener(this);
+   //     radioButtonTeacher.setOnClickListener(this);
+   //     radiobuttonStudent.setOnClickListener(this);
+   //     radioButtonLawyer.setOnClickListener(this);
+   //     radioButtonEngineer.setOnClickListener(this);
 
 
     }

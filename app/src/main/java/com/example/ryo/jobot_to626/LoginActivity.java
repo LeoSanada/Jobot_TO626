@@ -55,9 +55,11 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 if (user != null) {
                     // User is signed in
                     //Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Toast.makeText(LoginActivity.this, "User signed in: " + user.getEmail(), Toast.LENGTH_SHORT).show();
                 } else {
                     // User is signed out
                     //Log.d(TAG, "onAuthStateChanged:signed_out");
+                    Toast.makeText(LoginActivity.this, "Nobody Logged In", Toast.LENGTH_SHORT).show();
                 }
                 // ...
             }
@@ -103,23 +105,23 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            new AlertDialog.Builder(LoginActivity.this)
-                                    .setMessage("Where?")
-                                    .setNegativeButton("Go to Monitor", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            Intent intent = new Intent(LoginActivity.this, BasicActivity.class);
+                            //new AlertDialog.Builder(LoginActivity.this)
+                              //      .setMessage("Where?")
+                                //    .setNegativeButton("Go to Monitor", new DialogInterface.OnClickListener() {
+                                  //      @Override
+                                    //    public void onClick(DialogInterface dialogInterface, int i) {
+                                            Intent intent = new Intent(LoginActivity.this, AssessmentActivity.class);
                                             startActivity(intent);
-                                        }
-                                    })
-                                    .setPositiveButton("Go to Purchase", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            Intent intent = new Intent(LoginActivity.this, BasicActivity.class);
-                                            startActivity(intent);
-                                        }
-                                    })
-                                    .show();
+                                  //      }
+                                  //  })
+                                  //  .setPositiveButton("Go to Purchase", new DialogInterface.OnClickListener() {
+                                  //      @Override
+                                  //      public void onClick(DialogInterface dialogInterface, int i) {
+                                  //          Intent intent = new Intent(LoginActivity.this, BasicActivity.class);
+                                  //          startActivity(intent);
+                                  //      }
+                                  //  })
+                                  //  .show();
 
                         }
                     }
@@ -133,8 +135,10 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Authentication failed and Go To Register Page.",
                                     Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this,BasicActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });
