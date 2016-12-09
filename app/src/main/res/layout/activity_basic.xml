@@ -11,92 +11,124 @@
     tools:context="com.example.ryo.jobot_to626.BasicActivity">
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="Name"
         android:ems="10"
+        android:id="@+id/editTextName"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="25dp"
-        android:id="@+id/editTextName" />
+        android:layout_marginTop="13dp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_below="@+id/editTextName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp"
-        android:id="@+id/editTextEmail"
-        android:text="Email" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Brief Introduction"
-        android:ems="10"
-        android:layout_below="@+id/editTextPWD"
-        android:layout_alignRight="@+id/editTextPWD"
-        android:layout_alignEnd="@+id/editTextPWD"
-        android:layout_marginTop="28dp"
-        android:id="@+id/editTextInfo" />
-
-    <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editTextPWD"
-        android:layout_marginTop="39dp"
+        android:text="PassWord"
         android:layout_below="@+id/editTextEmail"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="PassWord" />
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Brief Introduction"
+        android:ems="10"
+        android:id="@+id/editTextInfo"
+        android:layout_below="@+id/editTextPWD"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="Status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/textViewStatus"
+        android:textSize="24sp"
         android:layout_below="@+id/editTextInfo"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp"
-        android:id="@+id/textViewStatus"
-        android:textSize="24sp" />
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editTextEmail"
+        android:text="Email"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/editTextName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="SignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonSignin"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewStatus"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="35dp" />
+        android:layout_alignParentStart="true">
 
-    <RadioButton
-        android:text="RadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewStatus"
-        android:layout_alignLeft="@+id/radioGroup"
-        android:layout_alignStart="@+id/radioGroup"
-        android:id="@+id/radioButton" />
+        <RadioButton
+            android:text="Student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewStatus"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/textViewStatus"
+            android:layout_toStartOf="@+id/textViewStatus" />
+            android:id="@+id/radioButtonStudent" />
 
-    <RadioButton
-        android:text="RadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewStatus"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/radioButton2" />
+
+
+        <RadioButton
+            android:text="Lawyer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewStatus"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/radioButtonLawyer" />
+
+        <RadioButton
+            android:text="Doctor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioButtonLawyer"
+            android:layout_alignRight="@+id/radioButtonLawyer"
+            android:layout_alignEnd="@+id/radioButtonLawyer"
+            android:id="@+id/radioButtonDoctor" />
+
+        <RadioButton
+            android:text="Engineer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioButtonDoctor"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/radioButtonEngineer" />
+
+        <RadioButton
+            android:text="Teacher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioButtonEngineer"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/radioButtonTeacher" />
     </RadioGroup>
 
 
