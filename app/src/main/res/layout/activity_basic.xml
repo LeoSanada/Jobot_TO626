@@ -79,7 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewStatus"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/radioGroupStatus">
 
         <RadioButton
             android:text="Student"
@@ -89,7 +90,7 @@
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/textViewStatus"
             android:layout_toStartOf="@+id/textViewStatus" />
-            android:id="@+id/radioButtonStudent" />
+            android:id="@+id/radioButtonStudent"/>
 
 
 

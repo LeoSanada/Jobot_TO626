@@ -24,8 +24,8 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPWD;
-    private RadioButton radioButtonStudent;
-    private RadioButton radioButtonProfessional;
+    //private RadioButton radioButtonStudent;
+    //private RadioButton radioButtonProfessional;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -39,13 +39,13 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPWD = (EditText) findViewById(R.id.editTextPWD);
-        radioButtonStudent =(RadioButton) findViewById(R.id.radioButtonStudent);
-        radioButtonProfessional = (RadioButton) findViewById(R.id.radioButtonProfessional);
+        //radioButtonStudent =(RadioButton) findViewById(R.id.radioButtonStudent);
+        //radioButtonProfessional = (RadioButton) findViewById(R.id.radioButtonProfessional);
 
         buttonLogin.setOnClickListener(this);
         buttonRegister.setOnClickListener(this);
-        radioButtonProfessional.setOnClickListener(this);
-        radioButtonStudent.setOnClickListener(this);
+        //radioButtonProfessional.setOnClickListener(this);
+        //radioButtonStudent.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -55,11 +55,11 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 if (user != null) {
                     // User is signed in
                     //Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Toast.makeText(LoginActivity.this, "User signed in: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "User signed in: " + user.getEmail(), Toast.LENGTH_SHORT).show();
                 } else {
                     // User is signed out
                     //Log.d(TAG, "onAuthStateChanged:signed_out");
-                    Toast.makeText(LoginActivity.this, "Nobody Logged In", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Nobody Logged In", Toast.LENGTH_SHORT).show();
                 }
                 // ...
             }
@@ -102,9 +102,13 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Authentication failed,Please register first!",
                                     Toast.LENGTH_SHORT).show();
+                            //Intent intent = new Intent(LoginActivity.this,BasicActivity.class);
+                            //startActivity(intent);
+
                         } else {
+                            Toast.makeText(LoginActivity.this, "Go to Assessment Page", Toast.LENGTH_SHORT).show();
                             //new AlertDialog.Builder(LoginActivity.this)
                               //      .setMessage("Where?")
                                 //    .setNegativeButton("Go to Monitor", new DialogInterface.OnClickListener() {

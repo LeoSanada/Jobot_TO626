@@ -10,32 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.LoginActivity">
 
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonLogin"
-        android:textSize="30sp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_alignBaseline="@+id/buttonRegister"
-        android:layout_alignBottom="@+id/buttonRegister"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonRegister"
-        android:textSize="30sp"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,36 +35,30 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <RadioGroup
-        android:layout_width="fill_parent"
+    <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/editTextPWD"
+        android:id="@+id/buttonLogin"
+        android:textSize="30sp"
+        android:layout_marginBottom="64dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp" />
 
-        <RadioButton
-            android:text="Professional"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radioButtonProfessional"
-            android:textSize="30sp"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/buttonRegister"
-            android:layout_toStartOf="@+id/buttonRegister" />
-
-        <RadioButton
-            android:text="Student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/radioButtonStudent"
-            android:textSize="30sp"
-            android:layout_below="@+id/radioButtonProfessional"
-            android:layout_alignLeft="@+id/radioButtonProfessional"
-            android:layout_alignStart="@+id/radioButtonProfessional"
-            android:layout_marginTop="13dp" />
-    </RadioGroup>
+    <Button
+        android:text="Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonLogin"
+        android:layout_toRightOf="@+id/buttonLogin"
+        android:layout_toEndOf="@+id/buttonLogin"
+        android:layout_marginLeft="55dp"
+        android:layout_marginStart="55dp"
+        android:id="@+id/buttonRegister"
+        android:textSize="30sp" />
 
 
 </RelativeLayout>
