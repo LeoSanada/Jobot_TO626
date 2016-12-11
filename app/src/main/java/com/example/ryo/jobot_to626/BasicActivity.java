@@ -3,7 +3,6 @@ package com.example.ryo.jobot_to626;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class BasicActivity extends Activity implements View.OnClickListener {
     private Button buttonSignin;
-    private EditText editTextName;
+    private EditText editTextPhone;
     private EditText editTextEmail;
     private EditText editTextPWD;
     private EditText editTextInfo;
@@ -48,7 +47,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
         buttonSignin = (Button) findViewById(R.id.buttonSignin);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextInfo = (EditText) findViewById(R.id.editTextInfo);
-        editTextName = (EditText) findViewById(R.id.editTextName);
+        editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextPWD = (EditText) findViewById(R.id.editTextPWD);
         //radioButtonDoctor = (RadioButton) findViewById(R.id.radioButtonDoctor);
         //radioButtonEngineer = (RadioButton) findViewById(R.id.radioButtonEngineer);
@@ -183,7 +182,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
             //@Override
             //public void onClick(View view) {
 
-                String name = editTextName.getText().toString();
+                String phone = editTextPhone.getText().toString();
                 String email = editTextEmail.getText().toString();
                 String briefinfo = editTextInfo.getText().toString();
                 String status = radioButtonStatus.getText().toString();
@@ -192,15 +191,21 @@ public class BasicActivity extends Activity implements View.OnClickListener {
                     createAccount(editTextEmail.getText().toString(), editTextPWD.getText().toString());
                     signIn(editTextEmail.getText().toString(), editTextPWD.getText().toString());
 
-                    Users users = new Users(name, email, briefinfo, status);
+                    Users users = new Users(phone, email, briefinfo, status);
 
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference dataPurchases = database.getReference("users");
                     DatabaseReference dataNewPurchase = dataPurchases.push();
                     dataNewPurchase.setValue(users);
 
-                    Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
-                    startActivity(intent);
+
+                    if (status == "student" ) {
+                        Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(BasicActivity.this,HistoryActivity.class);
+                        startActivity(intent);
+                    }
                 }
                 //createAccount(String email, String password);
                 //signIn(String email, String password);

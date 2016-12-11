@@ -5,7 +5,7 @@ package com.example.ryo.jobot_to626;
  */
 
 public class Users {
-    String name;
+    String phone;
     String email;
     String briefinfo;
     String status;
@@ -14,8 +14,8 @@ public class Users {
 
     };
 
-    public Users(String name, String email, String briefinfo, String status){
-        this.name = name;
+    public Users(String phone, String email, String briefinfo, String status){
+        this.phone = phone;
         this.email = email;
         this.briefinfo = briefinfo;
         this.status = status;
