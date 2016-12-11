@@ -102,13 +102,13 @@ public class BasicActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        String email = editTextEmail.getText().toString();
-        String password = editTextPWD.getText().toString();
-        if (view == buttonSignin) {
+        //String email = editTextEmail.getText().toString();
+        //String password = editTextPWD.getText().toString();
+        //if (view == buttonSignin) {
 
-            createAccount(email, password);
-            signIn(email, password);
-        }
+           // createAccount(email, password);
+           // signIn(email, password);
+        //}
     }
 
     public void createAccount(String email, String password){
@@ -187,16 +187,23 @@ public class BasicActivity extends Activity implements View.OnClickListener {
                 String email = editTextEmail.getText().toString();
                 String briefinfo = editTextInfo.getText().toString();
                 String status = radioButtonStatus.getText().toString();
+                String password = editTextPWD.getText().toString();
+                if(v == buttonSignin) {
+                    createAccount(editTextEmail.getText().toString(), editTextPWD.getText().toString());
+                    signIn(editTextEmail.getText().toString(), editTextPWD.getText().toString());
 
-                Users users = new Users(name, email, briefinfo, status);
+                    Users users = new Users(name, email, briefinfo, status);
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference dataPurchases = database.getReference("users");
-                DatabaseReference dataNewPurchase = dataPurchases.push();
-                dataNewPurchase.setValue(users);
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference dataPurchases = database.getReference("users");
+                    DatabaseReference dataNewPurchase = dataPurchases.push();
+                    dataNewPurchase.setValue(users);
 
-                Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
+                    startActivity(intent);
+                }
+                //createAccount(String email, String password);
+                //signIn(String email, String password);
 
 
             }

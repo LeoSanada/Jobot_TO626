@@ -90,8 +90,12 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         if (view == buttonLogin) {
             signIn(email, password);
         } else if (view == buttonRegister) {
-            createAccount(email, password);
-            signIn(email, password);
+            Toast.makeText(LoginActivity.this, "Authentication failed and Go To Register Page.",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this,BasicActivity.class);
+            startActivity(intent);
+            //createAccount(email, password);
+            //signIn(email, password);
         }
 
     }
