@@ -14,7 +14,7 @@ public class Users {
 
     };
 
-    public Users(String name,String email,String briefinfo,String status){
+    public Users(String name, String email, String briefinfo, String status){
         this.name = name;
         this.email = email;
         this.briefinfo = briefinfo;
