@@ -1,6 +1,7 @@
 package com.example.ryo.jobot_to626;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,5 +45,36 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
+        if(v.getId() == R.id.buttonbuttonSchedule1) {
+            Intent intentSchedule = new Intent(HistoryActivity.this, SchedulingActivity.class);
+            startActivity(intentSchedule);
+
+        }else if(v.getId() == R.id.buttonbuttonSchedule2) {
+            Intent intentSchedule = new Intent(HistoryActivity.this, SchedulingActivity.class);
+            startActivity(intentSchedule);
+
+        }else if(v.getId() == R.id.buttonbuttonSchedule3) {
+            Intent intentSchedule = new Intent(HistoryActivity.this, SchedulingActivity.class);
+            startActivity(intentSchedule);
+
+        }else if(v.getId() == R.id.buttonChat1) {
+            Intent intentChat = new Intent(HistoryActivity.this, ChatActivity.class);
+            startActivity(intentChat);
+
+        }else if(v.getId() == R.id.buttonChat2) {
+            Intent intentChat = new Intent(HistoryActivity.this, ChatActivity.class);
+            startActivity(intentChat);
+
+        }else if (v.getId() == R.id.buttonChat3) {
+            Intent intentChat = new Intent(HistoryActivity.this, ChatActivity.class);
+            startActivity(intentChat);
+
+        }
+
+        }
+
+
+
+
+
     }
-}
