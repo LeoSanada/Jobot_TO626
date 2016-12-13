@@ -73,7 +73,7 @@
         android:id="@+id/textViewJob3" />
 
     <Button
-        android:text="Profile"
+        android:text="Schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewName1"
@@ -81,61 +81,53 @@
         android:layout_toEndOf="@+id/textViewName1"
         android:layout_marginLeft="91dp"
         android:layout_marginStart="91dp"
-        android:id="@+id/buttonProfile1" />
+        android:id="@+id/buttonSchedule1" />
 
     <Button
         android:text="Chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonProfile1"
-        android:layout_toRightOf="@+id/buttonProfile1"
-        android:layout_toEndOf="@+id/buttonProfile1"
+        android:layout_alignTop="@+id/buttonSchedule1"
+        android:layout_toRightOf="@+id/buttonSchedule1"
+        android:layout_toEndOf="@+id/buttonSchedule1"
         android:layout_marginLeft="11dp"
         android:layout_marginStart="11dp"
         android:id="@+id/buttonChat1" />
 
     <Button
-        android:text="Profile"
+        android:text="Schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textViewName2"
-        android:layout_alignLeft="@+id/buttonProfile1"
-        android:layout_alignStart="@+id/buttonProfile1"
-        android:id="@+id/buttonProfile2" />
+        android:layout_alignLeft="@+id/buttonSchedule1"
+        android:layout_alignStart="@+id/buttonSchedule1"
+        android:id="@+id/buttonSchedule2" />
 
     <Button
         android:text="Chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonProfile2"
+        android:layout_alignTop="@+id/buttonSchedule2"
         android:layout_alignRight="@+id/buttonChat1"
         android:layout_alignEnd="@+id/buttonChat1"
         android:id="@+id/buttonChat2" />
 
     <Button
-        android:text="Profile"
+        android:text="Schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textViewJob3"
-        android:layout_alignLeft="@+id/buttonProfile2"
-        android:layout_alignStart="@+id/buttonProfile2"
-        android:id="@+id/buttonProfile3" />
+        android:layout_alignLeft="@+id/buttonSchedule2"
+        android:layout_alignStart="@+id/buttonSchedule2"
+        android:id="@+id/buttonSchedule3" />
 
     <Button
         android:text="Chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonProfile3"
+        android:layout_alignTop="@+id/buttonSchedule3"
         android:layout_alignLeft="@+id/buttonChat2"
         android:layout_alignStart="@+id/buttonChat2"
         android:id="@+id/buttonChat3" />
 
-    <Button
-        android:text="Next"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonProfile3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp"
-        android:id="@+id/buttonNext" />
 </RelativeLayout>
