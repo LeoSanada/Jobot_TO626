@@ -45,27 +45,27 @@ public class HistoryActivity extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        if(v.getId() == R.id.buttonbuttonSchedule1) {
+        if(view.getId() == R.id.buttonSchedule1) {
             Intent intentSchedule = new Intent(HistoryActivity.this, SchedulingActivity.class);
             startActivity(intentSchedule);
 
-        }else if(v.getId() == R.id.buttonbuttonSchedule2) {
+        }else if(view.getId() == R.id.buttonSchedule2) {
             Intent intentSchedule = new Intent(HistoryActivity.this, SchedulingActivity.class);
             startActivity(intentSchedule);
 
-        }else if(v.getId() == R.id.buttonbuttonSchedule3) {
+        }else if(view.getId() == R.id.buttonSchedule3) {
             Intent intentSchedule = new Intent(HistoryActivity.this, SchedulingActivity.class);
             startActivity(intentSchedule);
 
-        }else if(v.getId() == R.id.buttonChat1) {
+        }else if(view.getId() == R.id.buttonChat1) {
             Intent intentChat = new Intent(HistoryActivity.this, ChatActivity.class);
             startActivity(intentChat);
 
-        }else if(v.getId() == R.id.buttonChat2) {
+        }else if(view.getId() == R.id.buttonChat2) {
             Intent intentChat = new Intent(HistoryActivity.this, ChatActivity.class);
             startActivity(intentChat);
 
-        }else if (v.getId() == R.id.buttonChat3) {
+        }else if (view.getId() == R.id.buttonChat3) {
             Intent intentChat = new Intent(HistoryActivity.this, ChatActivity.class);
             startActivity(intentChat);
 

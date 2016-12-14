@@ -46,9 +46,7 @@ public class ChatActivity extends Activity implements View.OnClickListener{
 
                 if (me == person1 || me == person2){
 
-                    if (otherperson == person1 || other person == person2)
-
-                    {
+                    if (otherperson == person1 || other person == person2) {
 
                         String val = Chat.from + "\n" + Chat.to + "\n" + Chat.message;
 
