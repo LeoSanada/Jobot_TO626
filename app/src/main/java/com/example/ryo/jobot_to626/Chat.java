@@ -5,17 +5,16 @@ package com.example.ryo.jobot_to626;
  */
 
 public class Chat {
-
-    String user;
     String from;
     String to;
+    String message;
 
-    public Chat() {}
-
-    public Chat(String user, String from, String to) {
-        this.user = user;
-        this.from = from;
-        this.to = to;
+    public Chat() {
     }
 
+    public Chat (String from,String to, String message){
+        this.from = from;
+        this.to = to;
+        this.message = message;
+    }
 }

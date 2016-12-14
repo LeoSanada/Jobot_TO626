@@ -16,17 +16,13 @@ public class ChatActivity extends Activity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener();
-
-
 
     }
 
@@ -52,12 +48,8 @@ public class ChatActivity extends Activity implements View.OnClickListener{
 
                         textViewget.setText(val);
 
-
-
                     }
-
                 }
-
             }
 
             @Override

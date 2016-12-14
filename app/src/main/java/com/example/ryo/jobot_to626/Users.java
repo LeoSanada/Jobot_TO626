@@ -10,9 +10,7 @@ public class Users {
     String briefinfo;
     String status;
 
-    public Users(){
-
-    };
+    public Users(){}
 
     public Users(String phone, String email, String briefinfo, String status){
         this.phone = phone;
