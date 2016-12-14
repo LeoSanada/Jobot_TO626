@@ -7,5 +7,15 @@ package com.example.ryo.jobot_to626;
 public class Chat {
 
     String user;
-    String
+    String from;
+    String to;
+
+    public Chat() {}
+
+    public Chat(String user, String from, String to) {
+        this.user = user;
+        this.from = from;
+        this.to = to;
+    }
+
 }
