@@ -16,6 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends Activity implements View.OnClickListener{
     private Button buttonLogin;
@@ -145,29 +150,44 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                             //startActivity(intent);
 
                         } else {
-                            Toast.makeText(LoginActivity.this, "Go to Assessment Page", Toast.LENGTH_SHORT).show();
-                            //new AlertDialog.Builder(LoginActivity.this)
-                              //      .setMessage("Where?")
-                                //    .setNegativeButton("Go to Monitor", new DialogInterface.OnClickListener() {
-                                  //      @Override
-                                    //    public void onClick(DialogInterface dialogInterface, int i) {
-                                            Intent intent = new Intent(LoginActivity.this, AssessmentActivity.class);
-                                            startActivity(intent);
-                                  //      }
-                                  //  })
-                                  //  .setPositiveButton("Go to Purchase", new DialogInterface.OnClickListener() {
-                                  //      @Override
-                                  //      public void onClick(DialogInterface dialogInterface, int i) {
-                                  //          Intent intent = new Intent(LoginActivity.this, BasicActivity.class);
-                                  //          startActivity(intent);
-                                  //      }
-                                  //  })
-                                  //  .show();
+                            final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            final DatabaseReference dataUsers = database.getReference("users");
+
+                            mAuth = FirebaseAuth.getInstance();
+                            FirebaseUser currentuser = mAuth.getCurrentUser();
+                            String uid = currentuser.getUid();
+                            dataUsers.child(uid).child("status").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.getValue().equals("Student")) {
+                                        Toast.makeText(LoginActivity.this, "Go to Assessment Page", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(LoginActivity.this, AssessmentActivity.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, "Go to Professional Page", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(LoginActivity.this, HistoryActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+
 
                         }
                     }
                 });
     }
 
-    public void signOut() {mAuth.signOut();}
+    public void signOut() {
+        mAuth.signOut();
+    }
+
 }
