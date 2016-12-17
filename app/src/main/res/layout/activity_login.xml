@@ -10,56 +10,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.LoginActivity">
 
-    <EditText
+    <ImageView
+        android:src="@drawable/JobotIcon"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/editTextEmail"
-        android:layout_alignRight="@+id/editTextEmail"
-        android:layout_alignEnd="@+id/editTextEmail"
-        android:layout_marginTop="39dp"
-        android:id="@+id/editTextPWD"
-        android:textSize="30sp"
-        android:hint="Password" />
-
-    <Button
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonLogin"
-        android:textSize="30sp"
-        android:layout_marginBottom="64dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="52dp"
-        android:layout_marginStart="52dp" />
-
-    <Button
-        android:text="Register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/buttonLogin"
-        android:layout_toRightOf="@+id/buttonLogin"
-        android:layout_toEndOf="@+id/buttonLogin"
-        android:layout_marginLeft="55dp"
-        android:layout_marginStart="55dp"
-        android:id="@+id/buttonRegister"
-        android:textSize="30sp" />
+        android:layout_height="250dp"
+        android:id="@+id/imageView5"
+         />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress|textPersonName"
         android:ems="10"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="270dp"
         android:id="@+id/editTextEmail"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Email" />
+        android:hint="Email"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@+id/editTextEmail"
+        android:layout_alignRight="@+id/editTextEmail"
+        android:layout_alignEnd="@+id/editTextEmail"
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextPWD"
+        android:textSize="20sp"
+        android:hint="Password"
+        android:textAlignment="center"/>
+
+    <Button
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLogin"
+        android:textSize="20sp"
+        android:layout_marginBottom="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="@color/colorAccent"
+        android:backgroundTintMode="src_atop" />
+
+    <Button
+        android:text="Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/buttonLogin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/buttonRegister"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp" />
+
+
 
 
 </RelativeLayout>
