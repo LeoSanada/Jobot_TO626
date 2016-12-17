@@ -88,13 +88,16 @@ public class BasicActivity extends Activity implements View.OnClickListener {
         String email = editTextEmail.getText().toString();
         String phone = editTextPhone.getText().toString();
         String briefinfo = editTextInfo.getText().toString();
-
+        if (phone.isEmpty()|| briefinfo.isEmpty()) {
+            Toast.makeText(BasicActivity.this, "Please fill out all fields.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         // get selected radio button from radioGroup
         int selectedId = radioGroupStatus.getCheckedRadioButtonId();
 
         // find the radiobutton by returned id
         radioButtonStatus = (RadioButton) findViewById(selectedId);
-        Toast.makeText(BasicActivity.this, "Status is " + radioButtonStatus.getText(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(BasicActivity.this, "Status is " + radioButtonStatus.getText(), Toast.LENGTH_SHORT).show();
         String status = radioButtonStatus.getText().toString();
 
         if (view == buttonSignin) {

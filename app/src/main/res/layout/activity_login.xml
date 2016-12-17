@@ -8,10 +8,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ryo.jobot_to626.LoginActivity">
+    tools:context="com.example.ryo.jobot_to626.LoginActivity"
+    android:background="#FFFFFFFF">
 
     <ImageView
-        android:src="@drawable/JobotIcon"
+        android:src="@drawable/jobot_icon"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:id="@+id/imageView5"
@@ -54,7 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="#FFE46A34"
         android:backgroundTintMode="src_atop" />
 
     <Button

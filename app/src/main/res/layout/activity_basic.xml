@@ -8,7 +8,125 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFFFF"
     tools:context="com.example.ryo.jobot_to626.BasicActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextEmail"
+            android:hint="Email"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:enabled="false"
+            android:clickable="false" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number|phone"
+            android:ems="10"
+            android:id="@+id/editTextPhone"
+            android:hint="Phone Number"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/editTextEmail"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextInfo"
+            android:hint="Brief Introduction"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/editTextPhone"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="Student or professional?"
+                    android:layout_width="131dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewStatus"
+                    android:textSize="16dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/radioGroupStatus"
+                    android:layout_marginBottom="38dp"
+                    android:checkedButton="@+id/radioButtonStudent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:text="Student"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButtonStudent"
+                        android:textColor="#FFE46A34"/>
+
+                    <RadioButton
+                        android:text="Lawyer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButtonLawyer" />
+
+                    <RadioButton
+                        android:text="Doctor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButtonDoctor" />
+
+                    <RadioButton
+                        android:text="Engineer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButtonEngineer" />
+
+                    <RadioButton
+                        android:text="Teacher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radioButtonTeacher" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <ImageView
+                android:src="@drawable/safety_robot"
+                android:layout_width="250dp"
+                android:id="@+id/imageView7"
+                android:layout_height="250dp"
+                android:layout_weight="0.24" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:text="Register and Sign In"
@@ -16,114 +134,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonSignin"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/radioGroupStatus"
-        android:layout_above="@+id/buttonSignin"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="38dp"
-        android:checkedButton="@+id/radioButtonStudent">
-
-        <RadioButton
-            android:text="Student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewStatus"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/textViewStatus"
-            android:layout_toStartOf="@+id/textViewStatus"
-            android:id="@+id/radioButtonStudent" />
-
-
-
-        <RadioButton
-            android:text="Lawyer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewStatus"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="20dp"
-            android:id="@+id/radioButtonLawyer" />
-
-        <RadioButton
-            android:text="Doctor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/radioButtonLawyer"
-            android:layout_alignRight="@+id/radioButtonLawyer"
-            android:layout_alignEnd="@+id/radioButtonLawyer"
-            android:id="@+id/radioButtonDoctor" />
-
-        <RadioButton
-            android:text="Engineer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/radioButtonDoctor"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/radioButtonEngineer" />
-
-        <RadioButton
-            android:text="Teacher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/radioButtonEngineer"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/radioButtonTeacher" />
-    </RadioGroup>
-
-    <TextView
-        android:text="Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewStatus"
-        android:textSize="24sp"
-        android:layout_above="@+id/radioGroupStatus"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/editTextEmail"
-        android:hint="Email"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:enabled="false"
-        android:clickable="false" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number|phone"
-        android:ems="10"
-        android:id="@+id/editTextPhone"
-        android:hint="Phone Number"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/editTextEmail"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/editTextInfo"
-        android:hint="Brief Introduction"
-        android:layout_marginTop="12dp"
-        android:layout_below="@+id/editTextPhone"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#FFE46A34"/>
 
 
 </RelativeLayout>
