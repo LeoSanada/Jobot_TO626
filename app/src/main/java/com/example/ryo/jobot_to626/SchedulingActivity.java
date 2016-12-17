@@ -4,14 +4,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SchedulingActivity extends Activity {
 
-
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     Integer Butt;
 
     @Override
@@ -20,6 +27,7 @@ public class SchedulingActivity extends Activity {
         setContentView(R.layout.activity_scheduling);
         setupButton();
         Butt = 5;
+        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -72,6 +80,18 @@ public class SchedulingActivity extends Activity {
                 // If the Password is correct the Button will send you to either Settings Screen or
 
                 if (Butt.equals(1)) {
+
+//                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                    DatabaseReference dataTweets = database.getReference("users");
+//                    DatabaseReference dataNewTweets = dataTweets.push();
+//
+//                    String tweet_n = tweet.getText().toString();
+//                    String name = mAuth.getCurrentUser().getEmail();
+//
+//                    tweets tweet = new tweets(tweet_n, name);
+//                    dataNewTweets.setValue(tweet);
+
+
                     Toast toast = Toast.makeText(SchedulingActivity.this, "Your Call has Been Scheduled!", Toast.LENGTH_LONG);
                     toast.show();
                     Intent newPage = new Intent(SchedulingActivity.this, CallActivity.class);
@@ -112,6 +132,31 @@ public class SchedulingActivity extends Activity {
 
             }
         });
+
+    }
+
+
+
+
+    /////////////////////////////////
+    /////////   MENU   /////////////
+    /////////////////////////////////
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        if (item.getItemId() == R.id.logout_menu) {
+            startActivity(new Intent(this, LoginActivity.class));
+
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 }

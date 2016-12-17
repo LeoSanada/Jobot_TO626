@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
     private EditText editTextInfo;
     private RadioGroup radioGroupStatus;
     private RadioButton radioButtonStatus;
+    private Integer havecalled;
 
 
     private FirebaseAuth mAuth;
@@ -43,7 +46,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
         editTextInfo = (EditText) findViewById(R.id.editTextInfo);
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         radioGroupStatus = (RadioGroup) findViewById(R.id.radioGroupStatus);
-
+        havecalled=0;  //This is an indicator to know when a user has called a professional
         buttonSignin.setOnClickListener(this);
 
 
@@ -100,7 +103,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
     }
 
     private void register(String phone, String email, String briefinfo, String status) {
-        Users newuser = new Users(phone, email, briefinfo, status);
+        Users newuser = new Users(phone, email, briefinfo, status, havecalled);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dataUsers = database.getReference("users");
@@ -276,6 +279,29 @@ public class BasicActivity extends Activity implements View.OnClickListener {
 
 
         //}}
+
+
+    /////////////////////////////////
+    /////////   MENU   /////////////
+    /////////////////////////////////
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        if (item.getItemId() == R.id.logout_menu) {
+            startActivity(new Intent(this, LoginActivity.class));
+
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 }
 
 

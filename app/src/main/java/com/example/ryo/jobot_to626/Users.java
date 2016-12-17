@@ -9,13 +9,15 @@ public class Users {
     String email;
     String briefinfo;
     String status;
+    Integer havecalled;
 
     public Users(){}
 
-    public Users(String phone, String email, String briefinfo, String status){
+    public Users(String phone, String email, String briefinfo, String status, Integer havecalled){
         this.phone = phone;
         this.email = email;
         this.briefinfo = briefinfo;
         this.status = status;
+        this.havecalled = havecalled;
     }
 }

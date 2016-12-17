@@ -1,9 +1,12 @@
 package com.example.ryo.jobot_to626;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -97,5 +100,28 @@ public class ChatActivity extends Activity implements View.OnClickListener{
 
             }
         });
+    }
+
+
+    /////////////////////////////////
+    /////////   MENU   /////////////
+    /////////////////////////////////
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        if (item.getItemId() == R.id.logout_menu) {
+            startActivity(new Intent(this, LoginActivity.class));
+
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }

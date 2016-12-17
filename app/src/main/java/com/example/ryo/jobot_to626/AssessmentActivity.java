@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,5 +64,29 @@ public class AssessmentActivity extends FragmentActivity implements View.OnClick
 //                Toast.makeText(this, "Your question was posted.", Toast.LENGTH_SHORT).show();
 //            }
 //        }
+    }
+
+
+    /////////////////////////////////
+    /////////   MENU   /////////////
+    /////////////////////////////////
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+
+        if (item.getItemId() == R.id.logout_menu) {
+            startActivity(new Intent(AssessmentActivity.this, LoginActivity.class));
+
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }
