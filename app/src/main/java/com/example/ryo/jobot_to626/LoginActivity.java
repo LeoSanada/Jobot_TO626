@@ -1,8 +1,7 @@
 package com.example.ryo.jobot_to626;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,8 +22,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     private Button buttonRegister;
     private EditText editTextEmail;
     private EditText editTextPWD;
-    //private RadioButton radioButtonStudent;
-    //private RadioButton radioButtonProfessional;
+    private ProgressDialog progressDialog;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -39,13 +36,11 @@ public class LoginActivity extends Activity implements View.OnClickListener{
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPWD = (EditText) findViewById(R.id.editTextPWD);
-        //radioButtonStudent =(RadioButton) findViewById(R.id.radioButtonStudent);
-        //radioButtonProfessional = (RadioButton) findViewById(R.id.radioButtonProfessional);
 
         buttonLogin.setOnClickListener(this);
         buttonRegister.setOnClickListener(this);
-        //radioButtonProfessional.setOnClickListener(this);
-        //radioButtonStudent.setOnClickListener(this);
+
+        progressDialog = new ProgressDialog(this);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -55,11 +50,11 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 if (user != null) {
                     // User is signed in
                     Log.d("TAG", "onAuthStateChanged:signed_in:" + user.getUid());
-                    Toast.makeText(LoginActivity.this, "User signed in: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "User signed in: " + user.getEmail(), Toast.LENGTH_SHORT).show();
                 } else {
                     // User is signed out
                     Log.d("TAG", "onAuthStateChanged:signed_out");
-                    Toast.makeText(LoginActivity.this, "Nobody Logged In", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, "Nobody Logged In", Toast.LENGTH_SHORT).show();
                 }
                 // ...
             }
@@ -89,19 +84,54 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         String email = editTextEmail.getText().toString();
         String password = editTextPWD.getText().toString();
+        if (email.equals("") || password.equals("")) {
+            Toast.makeText(LoginActivity.this, "Please fill in your credentials.", Toast.LENGTH_SHORT).show();
+        } else {
+            if (view == buttonLogin) {
 
-        if (view == buttonLogin) {
-            signIn(email, password);
-        } else if (view == buttonRegister) {
-            Toast.makeText(LoginActivity.this, "Authentication failed and Go To Register Page.",
-                    Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginActivity.this,BasicActivity.class);
-            startActivity(intent);
-            //createAccount(email, password);
-            //signIn(email, password);
+                signIn(email, password);
+
+            } else if (view == buttonRegister) {
+
+                register(email, password);
+
+            }
         }
 
     }
+
+    public void register(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this,"Registration successful.",Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Intent intent = new Intent(LoginActivity.this, BasicActivity.class);
+                        startActivity(intent);
+                    }
+                });
+    }
+
     public void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -139,19 +169,5 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 });
     }
 
-    public void createAccount(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Authentication failed and Go To Register Page.",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this,BasicActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                });
-    }
+    public void signOut() {mAuth.signOut();}
 }

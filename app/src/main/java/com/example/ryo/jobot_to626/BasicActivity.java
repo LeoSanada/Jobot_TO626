@@ -24,13 +24,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
     private Button buttonSignin;
     private EditText editTextPhone;
     private EditText editTextEmail;
-    private EditText editTextPWD;
     private EditText editTextInfo;
-    //private RadioButton radiobuttonStudent;
-    //private RadioButton radioButtonDoctor;
-    //private RadioButton radioButtonLawyer;
-    //private RadioButton radioButtonEngineer;
-    //private RadioButton radioButtonTeacher;
     private RadioGroup radioGroupStatus;
     private RadioButton radioButtonStatus;
 
@@ -48,21 +42,9 @@ public class BasicActivity extends Activity implements View.OnClickListener {
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextInfo = (EditText) findViewById(R.id.editTextInfo);
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
-        editTextPWD = (EditText) findViewById(R.id.editTextPWD);
-        //radioButtonDoctor = (RadioButton) findViewById(R.id.radioButtonDoctor);
-        //radioButtonEngineer = (RadioButton) findViewById(R.id.radioButtonEngineer);
-        //radioButtonLawyer = (RadioButton) findViewById(R.id.radioButtonLawyer);
-        //radiobuttonStudent = (RadioButton) findViewById(R.id.radioButtonStudent);
-        //radioButtonTeacher = (RadioButton) findViewById(R.id.radioButtonTeacher);
-
-        //buttonSignin = (Button) findViewById(R.id.buttonSignin);
+        radioGroupStatus = (RadioGroup) findViewById(R.id.radioGroupStatus);
 
         buttonSignin.setOnClickListener(this);
-        //     radioButtonDoctor.setOnClickListener(this);
-        //     radioButtonTeacher.setOnClickListener(this);
-        //     radiobuttonStudent.setOnClickListener(this);
-        //     radioButtonLawyer.setOnClickListener(this);
-        //     radioButtonEngineer.setOnClickListener(this);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -79,11 +61,10 @@ public class BasicActivity extends Activity implements View.OnClickListener {
                 }
             }
         };
-
-        addListenerOnButton();
+        FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
+        editTextEmail.setText(currentuser.getEmail());
 
     }
-
 
     @Override
     public void onStart() {
@@ -101,129 +82,131 @@ public class BasicActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        //String email = editTextEmail.getText().toString();
-        //String password = editTextPWD.getText().toString();
-        //if (view == buttonSignin) {
+        String email = editTextEmail.getText().toString();
+        String phone = editTextPhone.getText().toString();
+        String briefinfo = editTextInfo.getText().toString();
 
-           // createAccount(email, password);
-           // signIn(email, password);
-        //}
+        // get selected radio button from radioGroup
+        int selectedId = radioGroupStatus.getCheckedRadioButtonId();
+
+        // find the radiobutton by returned id
+        radioButtonStatus = (RadioButton) findViewById(selectedId);
+        Toast.makeText(BasicActivity.this, "Status is " + radioButtonStatus.getText(), Toast.LENGTH_SHORT).show();
+        String status = radioButtonStatus.getText().toString();
+
+        if (view == buttonSignin) {
+            register(phone, email, briefinfo, status);
+        }
     }
 
-    public void createAccount(String email, String password){
+    private void register(String phone, String email, String briefinfo, String status) {
+        Users newuser = new Users(phone, email, briefinfo, status);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference dataUsers = database.getReference("users");
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        //Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+        FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
+        dataUsers.child(currentuser.getUid().toString()).setValue(newuser);
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        Toast.makeText(BasicActivity.this,"CreateAccountSuccess.",Toast.LENGTH_SHORT).show();
-
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(BasicActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                        // ...
-                    }
-                });
-    }
-
-    public void signIn(String email, String password){
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d("testlog", "signInWithEmail:onComplete:" + task.isSuccessful());
-                        Toast.makeText(BasicActivity.this,"SignInSuccess.",Toast.LENGTH_SHORT).show();
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Log.w("testlog", "signInWithEmail", task.getException());
-                            Toast.makeText(BasicActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                        // ...
-                    }
-                });
-
-
-
+        if (status.equals("Student")) {
+            Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(BasicActivity.this, HistoryActivity.class);
+            startActivity(intent);
+        }
 
     }
 
-    private void addListenerOnButton() {
-        radioGroupStatus = (RadioGroup) findViewById(R.id.radioGroupStatus);
+//    public void createAccount(String email, String password){
+//
+//    }
+//
+//    public void signIn(String email, String password){
+//        mAuth.signInWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        Log.d("testlog", "signInWithEmail:onComplete:" + task.isSuccessful());
+//                        Toast.makeText(BasicActivity.this,"SignInSuccess.",Toast.LENGTH_SHORT).show();
+//
+//                        // If sign in fails, display a message to the user. If sign in succeeds
+//                        // the auth state listener will be notified and logic to handle the
+//                        // signed in user can be handled in the listener.
+//                        if (!task.isSuccessful()) {
+//                            Log.w("testlog", "signInWithEmail", task.getException());
+//                            Toast.makeText(BasicActivity.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Toast.makeText(BasicActivity.this, "Login successful.",Toast.LENGTH_SHORT).show();
+//                            //INTENT?
+//                        }
+//
+//                        // ...
+//                    }
+//                });
+//    }
 
-
-        buttonSignin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-            // get selected radio button from radioGroup
-            int selectedId = radioGroupStatus.getCheckedRadioButtonId();
-
-            // find the radiobutton by returned id
-            radioButtonStatus = (RadioButton) findViewById(selectedId);
-
-            Toast.makeText(BasicActivity.this,
-            "Status is" + radioButtonStatus.getText(), Toast.LENGTH_SHORT).show();
-            //if (view == buttonSignin){
-
-            //@Override
-            //public void onClick(View view) {
-
-                String phone = editTextPhone.getText().toString();
-                String email = editTextEmail.getText().toString();
-                String briefinfo = editTextInfo.getText().toString();
-                String status = radioButtonStatus.getText().toString();
-                String password = editTextPWD.getText().toString();
-                if(v == buttonSignin) {
-                    createAccount(editTextEmail.getText().toString(), editTextPWD.getText().toString());
-                    signIn(editTextEmail.getText().toString(), editTextPWD.getText().toString());
-
-                    Users users = new Users(phone, email, briefinfo, status);
-
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference dataPurchases = database.getReference("users");
-                    DatabaseReference dataNewPurchase = dataPurchases.push();
-                    dataNewPurchase.setValue(users);
-
-
-                    if (status == "student" ) {
-                        Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
-                        startActivity(intent);
-                    }else{
-                        Intent intent = new Intent(BasicActivity.this,HistoryActivity.class);
-                        startActivity(intent);
-                    }
-                }
-                //createAccount(String email, String password);
-                //signIn(String email, String password);
-
-
-            }
-
-
-            //Toast.makeText(BasicActivity.this,"Go to Assessment Page",Toast.LENGTH_SHORT).show();
-
-            //Intent intent = new Intent(BasicActivity.this,AssessmentActivity.class);
-            //startActivity(intent);
-
-
-            //}
-
-        });
-    }
+//    private void addListenerOnButton() {
+//
+//        buttonSignin.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//
+//            // get selected radio button from radioGroup
+//            int selectedId = radioGroupStatus.getCheckedRadioButtonId();
+//
+//            // find the radiobutton by returned id
+//            radioButtonStatus = (RadioButton) findViewById(selectedId);
+//            Toast.makeText(BasicActivity.this, "Status is " + radioButtonStatus.getText(), Toast.LENGTH_SHORT).show();
+//            //if (view == buttonSignin){
+//
+//            //@Override
+//            //public void onClick(View view) {
+//
+//                String phone = editTextPhone.getText().toString();
+//                String email = editTextEmail.getText().toString();
+//                String briefinfo = editTextInfo.getText().toString();
+//                String status = radioButtonStatus.getText().toString();
+//
+//                if(v == buttonSignin) {
+//                    createAccount(editTextEmail.getText().toString(), editTextPWD.getText().toString());
+//                    signIn(editTextEmail.getText().toString(), editTextPWD.getText().toString());
+//
+//                    Users users = new Users(phone, email, briefinfo, status);
+//
+//                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                    DatabaseReference dataPurchases = database.getReference("users");
+//                    DatabaseReference dataNewPurchase = dataPurchases.push();
+//                    dataNewPurchase.setValue(users);
+//
+//
+//                    if (status == "student" ) {
+//                        Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
+//                        startActivity(intent);
+//                    }else{
+//                        Intent intent = new Intent(BasicActivity.this,HistoryActivity.class);
+//                        startActivity(intent);
+//                    }
+//                }
+//                //createAccount(String email, String password);
+//                //signIn(String email, String password);
+//
+//
+//            }
+//
+//
+//            //Toast.makeText(BasicActivity.this,"Go to Assessment Page",Toast.LENGTH_SHORT).show();
+//
+//            //Intent intent = new Intent(BasicActivity.this,AssessmentActivity.class);
+//            //startActivity(intent);
+//
+//
+//            //}
+//
+//        });
+//    }
 
 
     //@Override

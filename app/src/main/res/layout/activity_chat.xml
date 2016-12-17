@@ -33,4 +33,11 @@
         android:layout_marginLeft="19dp"
         android:layout_marginStart="19dp"
         android:id="@+id/buttonSend" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textViewget"
+        android:layout_height="400dp" />
 </RelativeLayout>
