@@ -10,4 +10,44 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.BioActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="John Johnson&apos;s Profile"
+            android:id="@+id/textView2"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:padding="15dp"
+            android:textSize="25dp"
+            android:textColor="#0c0b0b" />
+
+        <TextView
+            android:layout_width="294dp"
+            android:layout_height="wrap_content"
+            android:text="Johnson&apos;s statewide practice focuses on cleanup and redevelopment and includes a broad range of environmental transactional, environmental regulatory compliance, and state environmental incentives and policy matters. He has significant experience in the cleanup, redevelopment, and reuse of Brownfields and other contaminated properties across Florida and is a past President of the Florida Brownfields Association and a member of its Board of Directors. He has been closely involved in the drafting, lobbying, and passage of Brownfields legislation in Florida, expanding incentives for cleanup and redevelopment. His practice also includes renewable energy development and opportunities in new carbon markets."
+            android:id="@+id/profile_description"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"
+            android:padding="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Back"
+            android:id="@+id/backbutton"
+            android:layout_gravity="center_horizontal"
+            android:paddingEnd="35dp"
+            android:paddingStart="35dp"
+            android:padding="10dp"
+            android:background="#3eafd9" />
+    </LinearLayout>
 </RelativeLayout>
