@@ -167,7 +167,7 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Go to Professional Page", Toast.LENGTH_SHORT).show();
 
-                                        Intent intent = new Intent(LoginActivity.this, HistoryActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, ProfessionalMainActivity.class);
                                         startActivity(intent);
                                     }
                                 }

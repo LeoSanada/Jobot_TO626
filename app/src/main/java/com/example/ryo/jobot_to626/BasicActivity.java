@@ -118,7 +118,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(BasicActivity.this, AssessmentActivity.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(BasicActivity.this, HistoryActivity.class);
+            Intent intent = new Intent(BasicActivity.this, ProfessionalMainActivity.class);
             startActivity(intent);
         }
 
