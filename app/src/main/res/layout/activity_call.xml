@@ -10,4 +10,78 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.CallActivity">
 
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/layoutone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="You are scheduled to call:"
+            android:id="@+id/Text1"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="John Johnson"
+            android:id="@+id/Name"
+            android:layout_gravity="center_horizontal"
+            android:padding="15dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/johnjohnson"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="profile_picture" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Environmental Lawyer"
+            android:id="@+id/title"
+            android:layout_gravity="center_horizontal"
+            android:padding="15dp"
+            android:textColor="#111010" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="see profile"
+            android:id="@+id/profilebutton"
+            android:layout_gravity="center_horizontal"
+            android:background="#ffffff"
+            android:textColor="#8085de"
+            android:layout_marginBottom="85dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="5dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call Now"
+        android:id="@+id/callbutton"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#48bbde"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="55dp" />
 </RelativeLayout>
