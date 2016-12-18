@@ -30,6 +30,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
     private RadioGroup radioGroupStatus;
     private RadioButton radioButtonStatus;
     private Integer havecalled;
+    private String contacts;
 
 
     private FirebaseAuth mAuth;
@@ -47,6 +48,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         radioGroupStatus = (RadioGroup) findViewById(R.id.radioGroupStatus);
         havecalled=0;  //This is an indicator to know when a user has called a professional
+        contacts="";  //This is a placeholder for the list of contacts of the user
         buttonSignin.setOnClickListener(this);
 
 
@@ -106,7 +108,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
     }
 
     private void register(String phone, String email, String briefinfo, String status) {
-        Users newuser = new Users(phone, email, briefinfo, status, havecalled);
+        Users newuser = new Users(phone, email, briefinfo, status, havecalled, contacts);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dataUsers = database.getReference("users");

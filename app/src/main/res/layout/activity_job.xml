@@ -32,7 +32,7 @@
             android:textStyle="normal|bold" />
 
         <TextView
-            android:text="Click on a job title to add the professional to your contact list"
+            android:text="Click on a job title to start finding matches in that profession"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView6"

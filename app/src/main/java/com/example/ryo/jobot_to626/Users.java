@@ -10,14 +10,16 @@ public class Users {
     String briefinfo;
     String status;
     Integer havecalled;
+    String contacts;
 
     public Users(){}
 
-    public Users(String phone, String email, String briefinfo, String status, Integer havecalled){
+    public Users(String phone, String email, String briefinfo, String status, Integer havecalled, String contacts){
         this.phone = phone;
         this.email = email;
         this.briefinfo = briefinfo;
         this.status = status;
         this.havecalled = havecalled;
+        this.contacts = contacts;
     }
 }
