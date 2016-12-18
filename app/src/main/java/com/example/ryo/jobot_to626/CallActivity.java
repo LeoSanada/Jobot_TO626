@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.telecom.Call;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,7 +14,7 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class CallActivity extends Activity {
+public class CallActivity extends FragmentActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -21,7 +23,7 @@ public class CallActivity extends Activity {
     Button profile;
     String phone_number;
     Integer have_called;
-
+    ViewPager viewpagerTopmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class CallActivity extends Activity {
         setContentView(R.layout.activity_call);
         have_called = 0;
         mAuth = FirebaseAuth.getInstance();
+        viewpagerTopmenu = (ViewPager) findViewById(R.id.viewpagerTopmenu);
+        viewpagerTopmenu.setAdapter(new MenuAdapter(getSupportFragmentManager()));
 
         if (have_called.equals(1)) {
 
