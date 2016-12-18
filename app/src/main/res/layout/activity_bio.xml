@@ -48,6 +48,6 @@
             android:paddingEnd="35dp"
             android:paddingStart="35dp"
             android:padding="10dp"
-            android:background="#3eafd9" />
+            android:background="#FFE46A34" />
     </LinearLayout>
 </RelativeLayout>

@@ -10,16 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.CallActivity">
 
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:id="@+id/layoutone">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerTopmenu"
+            android:layout_height="50dp"
+            android:layout_width="match_parent" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             android:id="@+id/imageView"
             android:src="@drawable/johnjohnson"
             android:layout_gravity="center_horizontal"
@@ -69,19 +69,19 @@
             android:layout_margin="5dp"
             android:layout_marginTop="5dp" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Call Now"
+            android:id="@+id/callbutton"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#FFE46A34"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            />
+
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Call Now"
-        android:id="@+id/callbutton"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="#48bbde"
-        android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:paddingBottom="0dp"
-        android:layout_marginTop="55dp" />
 </RelativeLayout>
