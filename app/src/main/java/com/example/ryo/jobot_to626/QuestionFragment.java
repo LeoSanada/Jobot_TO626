@@ -80,9 +80,9 @@ public class QuestionFragment extends android.support.v4.app.Fragment implements
                                 score = dataSnapshot.child(uid).child("score").child(count.toString()).getValue(Integer.class);
                             }
                             if (score == 1) {
-                                buttonYes.setBackgroundColor(Color.GREEN);
+                                buttonYes.setBackgroundColor(Color.argb(255,228,106,52));
                             } else if (score == -1){
-                                buttonNo.setBackgroundColor(Color.RED);
+                                buttonNo.setBackgroundColor(Color.argb(255,228,106,52));
                             }
                         }
 
@@ -138,12 +138,12 @@ public class QuestionFragment extends android.support.v4.app.Fragment implements
 
         if (v==buttonNo) {
             ScoreChange = -1;
-            buttonNo.setBackgroundColor(Color.RED);
+            buttonNo.setBackgroundColor(Color.argb(255,228,106,52));
             buttonYes.setBackgroundColor(Color.LTGRAY);
         } else if (v==buttonYes) {
             ScoreChange = 1;
             buttonNo.setBackgroundColor(Color.LTGRAY);
-            buttonYes.setBackgroundColor(Color.GREEN);
+            buttonYes.setBackgroundColor(Color.argb(255,228,106,52));
         }
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();

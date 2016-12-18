@@ -1,0 +1,52 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ryo.jobot_to626.TopMenuFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <Button
+                android:text="Assess"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonAssess"
+                android:layout_weight="1"
+                android:backgroundTint="#FFE46A34"
+                android:drawableLeft="@android:drawable/ic_menu_rotate"
+                android:textSize="16sp"
+                android:paddingLeft="8dp" />
+
+            <Button
+                android:text="Match"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonMatch"
+                android:layout_weight="1"
+                android:drawableLeft="@android:drawable/ic_menu_add"
+                android:textSize="16sp"
+                android:paddingLeft="8dp" />
+
+            <Button
+                android:text="Contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonContact"
+                android:layout_weight="1"
+                android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+                android:textSize="16sp"
+                android:paddingLeft="8dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
