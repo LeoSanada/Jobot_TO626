@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -37,6 +38,7 @@ public class JobActivity extends FragmentActivity implements View.OnClickListene
         viewpagerTopmenu.setAdapter(new MenuAdapter(getSupportFragmentManager()));
 
         infoButton1 = (Button) findViewById(R.id.infoButton1);
+
         infoButton2 = (Button) findViewById(R.id.infoButton2);
         infoButton3 = (Button) findViewById(R.id.infoButton3);
         infoButton4 = (Button) findViewById(R.id.infoButton4);
@@ -64,7 +66,10 @@ public class JobActivity extends FragmentActivity implements View.OnClickListene
 
         if (v == infoButton1){
             Intent intent = new Intent(this, WikiDbActivity.class);
+            intent.putExtra("job","Lawyer");
             startActivity(intent);
+
+
         }
         else if (v == infoButton2){
             Intent intent = new Intent(this, WikiDbActivity.class);
@@ -79,21 +84,25 @@ public class JobActivity extends FragmentActivity implements View.OnClickListene
             startActivity(intent);
         }
         else if (v == matchText1){
+            Toast.makeText(this, "This job title was added to your contacts!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, HistoryActivity.class);
             startActivity(intent);
         }
 
         else if (v == matchText2){
+            Toast.makeText(this, "This job title was added to your contacts!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, HistoryActivity.class);
             startActivity(intent);
         }
 
         else if (v == matchText3){
+            Toast.makeText(this, "This job title was added to your contacts!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, HistoryActivity.class);
             startActivity(intent);
         }
 
         else if (v == matchText4){
+            Toast.makeText(this, "This job title was added to your contacts!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, HistoryActivity.class);
             startActivity(intent);
         }
