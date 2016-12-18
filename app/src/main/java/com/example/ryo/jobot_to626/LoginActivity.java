@@ -143,15 +143,21 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
+                        progressDialog.setMessage("Logging In, Please Wait...");
+                        progressDialog.show();
+
                         if (!task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Authentication failed,Please register first!",
                                     Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
                             //Intent intent = new Intent(LoginActivity.this,BasicActivity.class);
                             //startActivity(intent);
 
                         } else {
                             final FirebaseDatabase database = FirebaseDatabase.getInstance();
                             final DatabaseReference dataUsers = database.getReference("users");
+
+
 
                             mAuth = FirebaseAuth.getInstance();
                             FirebaseUser currentuser = mAuth.getCurrentUser();
@@ -160,15 +166,16 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     if (dataSnapshot.getValue().equals("Student")) {
-                                        Toast.makeText(LoginActivity.this, "Go to Assessment Page", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(LoginActivity.this, "Go to Assessment Page", Toast.LENGTH_SHORT).show();
 
                                         Intent intent = new Intent(LoginActivity.this, AssessmentActivity.class);
                                         startActivity(intent);
                                     } else {
-                                        Toast.makeText(LoginActivity.this, "Go to Professional Page", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(LoginActivity.this, "Go to Professional Page", Toast.LENGTH_SHORT).show();
 
                                         Intent intent = new Intent(LoginActivity.this, ProfessionalMainActivity.class);
                                         startActivity(intent);
+
                                     }
                                 }
 

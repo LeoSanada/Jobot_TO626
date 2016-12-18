@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +24,7 @@
         <activity android:name=".CallActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".FeedbackActivity" />
-        <activity android:name=".HistoryActivity" />
+        <activity android:name=".HistoryActivity"/>
         <activity android:name=".JobActivity" />
         <activity android:name=".MeetActivity" />
         <activity android:name=".SchedulingActivity" />

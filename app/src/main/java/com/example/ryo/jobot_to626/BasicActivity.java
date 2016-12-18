@@ -299,6 +299,7 @@ public class BasicActivity extends Activity implements View.OnClickListener {
     {
 
         if (item.getItemId() == R.id.logout_menu) {
+            mAuth.signOut();
             startActivity(new Intent(this, LoginActivity.class));
 
         }
