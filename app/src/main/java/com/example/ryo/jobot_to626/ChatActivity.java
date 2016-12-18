@@ -90,7 +90,7 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Chat2 chat2 = dataSnapshot.getValue(Chat2.class);
                 String val = textViewGet.getText().toString();
-                val =  val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
+                val = val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
                 textViewGet.setText(val);
                 textViewGet.setMovementMethod(new ScrollingMovementMethod());
 
@@ -105,10 +105,6 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-                Chat2 chat2 = dataSnapshot.getValue(Chat2.class);
-                String val = textViewGet.getText().toString();
-                val =  val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
-                textViewGet.setText(val);
 
             }
 
