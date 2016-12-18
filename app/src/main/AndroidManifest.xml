@@ -27,7 +27,9 @@
         <activity android:name=".JobActivity" />
         <activity android:name=".MeetActivity" />
         <activity android:name=".SchedulingActivity" />
-        <activity android:name=".WikiDbActivity"></activity>
+        <activity android:name=".WikiDbActivity" />
+        <activity android:name=".ProfessionalMainActivity" />
+        <activity android:name=".ScheduleProfActvity"></activity>
     </application>
 
 </manifest>
