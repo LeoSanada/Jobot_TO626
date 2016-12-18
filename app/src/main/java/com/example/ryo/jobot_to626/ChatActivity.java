@@ -83,7 +83,7 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
         dataNewChat2.setValue(chat2);
 
 
-        //Show data
+        //Show data but showing too much data
         DatabaseReference dataChatLoad = database.getReference();
         dataChatLoad.child("chat2").orderByKey().limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
