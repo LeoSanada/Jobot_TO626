@@ -1,15 +1,17 @@
 package com.example.ryo.jobot_to626;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +27,9 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private TextView textViewget;
+    private EditText editTextMessage;
+    private TextView textViewGet;
+    private Button buttonSend;
 
     ViewPager viewpagerTopmenu;
 
@@ -33,7 +37,11 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        textViewget = (TextView) findViewById(R.id.textViewget);
+
+        editTextMessage = (EditText) findViewById(R.id.editTextMessage);
+        textViewGet = (TextView) findViewById(R.id.textViewGet);
+        buttonSend = (Button) findViewById(R.id.buttonSend);
+
         viewpagerTopmenu = (ViewPager) findViewById(R.id.viewpagerTopmenu);
         viewpagerTopmenu.setAdapter(new MenuAdapter(getSupportFragmentManager()));
 
@@ -55,49 +63,58 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
             }
         };
 
+        buttonSend.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference dataChat = database.getReference("chat");
+
+        //String data to database
+        DatabaseReference dataChat2 = database.getReference("chat2");
+        DatabaseReference dataNewChat2 = dataChat2.push();
+
+        String message = editTextMessage.getText().toString();
+        String sender = mAuth.getCurrentUser().getEmail();
+
+        Chat2 chat2 = new Chat2(sender, message);
+        dataNewChat2.setValue(chat2);
 
 
-
-        dataChat.orderByKey().limitToLast(999).addChildEventListener(new ChildEventListener() {
-
+        //Show data
+        DatabaseReference dataChatLoad = database.getReference();
+        dataChatLoad.child("chat2").orderByKey().limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Chat chat = dataSnapshot.getValue(Chat.class);
+                Chat2 chat2 = dataSnapshot.getValue(Chat2.class);
+                String val = textViewGet.getText().toString();
+                val =  val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
+                textViewGet.setText(val);
+                textViewGet.setMovementMethod(new ScrollingMovementMethod());
 
-                FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
-                String me = currentuser.getEmail();
-                String otherperson = "Person"; //has to be changed!!!!! *****************
-                String person1 = chat.from;
-                String person2 = chat.to;
-
-                if (me == person1 || me == person2){
-
-                    if (otherperson == person1 || otherperson == person2) {
-
-                        String val = chat.from + "\n" + chat.to + "\n" + chat.message;
-
-                        textViewget.setText(val);
-
-                    }
-                }
             }
+
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                Chat2 chat2 = dataSnapshot.getValue(Chat2.class);
+                String val = textViewGet.getText().toString();
+                val =  val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
+                textViewGet.setText(val);
+
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override
@@ -106,6 +123,53 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
             }
         });
     }
+
+
+
+        //DatabaseReference dataChat = database.getReference("chat");
+        //dataChat.orderByKey().limitToLast(999).addChildEventListener(new ChildEventListener() {
+
+            //@Override
+            //public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                //Chat chat = dataSnapshot.getValue(Chat.class);
+
+                //FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
+                //String me = currentuser.getEmail();
+                //String otherperson = "Person"; //has to be changed!!!!! *****************
+                //String person1 = chat.from;
+                //String person2 = chat.to;
+
+                //if (me == person1 || me == person2){
+
+                    //if (otherperson == person1 || otherperson == person2) {
+
+                        //String val = chat.from + "\n" + chat.to + "\n" + chat.message;
+
+                        //textViewGet.setText(val);
+
+                    //}
+                //}
+            //}
+
+            //@Override
+            //public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            //}
+
+            //@Override
+            //public void onChildRemoved(DataSnapshot dataSnapshot) {
+            //}
+
+            //@Override
+            //public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            //}
+
+            //@Override
+            //public void onCancelled(DatabaseError databaseError) {
+
+            //}
+        //});
+    //}
 
 
     /////////////////////////////////
