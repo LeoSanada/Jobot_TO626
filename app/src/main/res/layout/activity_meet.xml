@@ -10,39 +10,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.MeetActivity">
 
-    <TextView
-        android:text="Menu Buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerTopmenu"
+            android:layout_height="50dp"
+            android:layout_width="match_parent" />
+
         <TextView
-            android:text="Lawyers matches"
+            android:text="Lawyer matches"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/labelMatches"
             android:textSize="30sp"
             android:textAlignment="center"
-            android:textStyle="normal|bold" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:textStyle="normal|bold"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="60dp">
 
             <TextView
                 android:text="John D."
@@ -53,18 +49,14 @@
                 android:textSize="24sp"
                 android:onClick="onClick"
                 android:clickable="true"
-                android:textAlignment="viewStart" />
+                android:layout_marginTop="5dp"/>
 
             <ImageView
                 android:src="@mipmap/add_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView2" />
-
-            <Space
-                android:layout_weight="0.10"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp" />
+                android:id="@+id/imageView2"
+                android:layout_marginRight="15dp"/>
 
             <Button
                 android:text="i"
@@ -73,18 +65,15 @@
                 android:layout_height="30dp"
                 android:background="@drawable/button_bg_round"
                 android:id="@+id/infoButton1"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:layout_marginTop="5dp"/>
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="60dp">
 
             <TextView
                 android:text="Michael M."
@@ -93,7 +82,7 @@
                 android:id="@+id/matchText2"
                 android:layout_weight="0.81"
                 android:textSize="24sp"
-                android:textAlignment="viewStart"
+                android:layout_marginTop="5dp"
                 android:onClick="onClick"
                 android:clickable="true"/>
 
@@ -101,12 +90,8 @@
                 android:src="@mipmap/add_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView3" />
-
-            <Space
-                android:layout_weight="0.10"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp" />
+                android:id="@+id/imageView3"
+                android:layout_marginRight="15dp"/>
 
             <Button
                 android:text="i"
@@ -115,17 +100,14 @@
                 android:layout_height="30dp"
                 android:background="@drawable/button_bg_round"
                 android:id="@+id/infoButton2"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:layout_marginTop="5dp"/>
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="60dp">
 
             <TextView
                 android:text="Henry K."
@@ -134,7 +116,7 @@
                 android:id="@+id/matchText3"
                 android:layout_weight="0.92"
                 android:textSize="24sp"
-                android:textAlignment="viewStart"
+                android:layout_marginTop="5dp"
                 android:onClick="onClick"
                 android:clickable="true"/>
 
@@ -142,12 +124,8 @@
                 android:src="@mipmap/add_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView4" />
-
-            <Space
-                android:layout_weight="0.10"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp" />
+                android:id="@+id/imageView4"
+                android:layout_marginRight="15dp"/>
 
             <Button
                 android:text="i"
@@ -156,14 +134,10 @@
                 android:layout_height="30dp"
                 android:background="@drawable/button_bg_round"
                 android:id="@+id/infoButton3"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:layout_marginTop="5dp"/>
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="1" />
 
     </LinearLayout>
 

@@ -3,6 +3,8 @@ package com.example.ryo.jobot_to626;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,16 +17,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SchedulingActivity extends Activity {
+public class SchedulingActivity extends FragmentActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     Integer Butt;
+    ViewPager viewpagerTopmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scheduling);
+
+        viewpagerTopmenu = (ViewPager) findViewById(R.id.viewpagerTopmenu);
+        viewpagerTopmenu.setAdapter(new MenuAdapter(getSupportFragmentManager()));
+
         setupButton();
         Butt = 5;
         mAuth = FirebaseAuth.getInstance();

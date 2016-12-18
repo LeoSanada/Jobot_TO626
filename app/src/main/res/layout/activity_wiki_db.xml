@@ -53,4 +53,14 @@
         android:textSize="18sp"
         android:textStyle="normal|bold" />
 
+    <Button
+        android:text="Back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="#FFE46A34"
+        android:id="@+id/buttonBack" />
+
 </RelativeLayout>

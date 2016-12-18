@@ -11,75 +11,86 @@
     tools:context="com.example.ryo.jobot_to626.SchedulingActivity">
 
 
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/instructions"
-        android:text="Please select one of the provided time slots to make your call:"
-        android:textAlignment="center"
-        android:textSize="25dp"
-        android:layout_marginTop="15dp" />
+        android:layout_height="match_parent">
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/instructions"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="70dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerTopmenu"
+            android:layout_height="50dp"
+            android:layout_width="match_parent" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8:00 am Thursday December 19th, 2016 "
-            android:id="@+id/option_one"
-            android:layout_gravity="center_horizontal"
-            android:onClick="onRadioButtonClicked"
-            android:textSize="15dp"
-            android:textAlignment="center" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10:00 am Monday December 23rd, 2016"
-            android:id="@+id/option_two"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"
-            android:clickable="true"
-            android:textSize="15dp"
-            android:textAlignment="center" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10:00 am Tuesday December 24th, 2016"
-            android:id="@+id/option_three"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"
-            android:clickable="true"
-            android:textSize="15dp" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="9:00 am Fiday December 28th, 2016"
-            android:id="@+id/option_four"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"
-            android:clickable="true"
-            android:textSize="15dp" />
-
-        <Button
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Schedule!"
-            android:id="@+id/schedule_butt"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp" />
-    </RadioGroup>
+            android:id="@+id/instructions"
+            android:text="Please select one of the provided time slots to make your call:"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp" />
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/instructions"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="70dp">
 
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00 am Thursday December 19th, 2016 "
+                android:id="@+id/option_one"
+                android:layout_gravity="center_horizontal"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="15dp"
+                android:textAlignment="center" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00 am Monday December 23rd, 2016"
+                android:id="@+id/option_two"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:onClick="onRadioButtonClicked"
+                android:clickable="true"
+                android:textSize="15dp"
+                android:textAlignment="center" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:00 am Tuesday December 24th, 2016"
+                android:id="@+id/option_three"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:onClick="onRadioButtonClicked"
+                android:clickable="true"
+                android:textSize="15dp" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:00 am Fiday December 28th, 2016"
+                android:id="@+id/option_four"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:onClick="onRadioButtonClicked"
+                android:clickable="true"
+                android:textSize="15dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Schedule!"
+                android:id="@+id/schedule_butt"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#FFE46A34"
+                android:layout_marginTop="60dp" />
+        </RadioGroup>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

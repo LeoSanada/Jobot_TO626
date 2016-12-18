@@ -3,6 +3,8 @@ package com.example.ryo.jobot_to626;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,8 +13,9 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class JobActivity extends Activity implements View.OnClickListener{
+public class JobActivity extends FragmentActivity implements View.OnClickListener{
 
+    ViewPager viewpagerTopmenu;
     private Button infoButton1;
     private Button infoButton2;
     private Button infoButton3;
@@ -30,6 +33,8 @@ public class JobActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job);
+        viewpagerTopmenu = (ViewPager) findViewById(R.id.viewpagerTopmenu);
+        viewpagerTopmenu.setAdapter(new MenuAdapter(getSupportFragmentManager()));
 
         infoButton1 = (Button) findViewById(R.id.infoButton1);
         infoButton2 = (Button) findViewById(R.id.infoButton2);

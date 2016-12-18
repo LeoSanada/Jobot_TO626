@@ -10,22 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ryo.jobot_to626.JobActivity">
 
-    <TextView
-        android:text="Menu Buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_marginTop="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerTopmenu"
+            android:layout_height="50dp"
+            android:layout_width="match_parent" />
 
         <TextView
             android:text="Your top matches are:"
@@ -36,6 +31,15 @@
             android:textAlignment="center"
             android:textStyle="normal|bold" />
 
+        <TextView
+            android:text="Click on a job title to add the professional to your contact list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"/>
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />
@@ -43,7 +47,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="50dp">
 
             <TextView
                 android:text="80%"
@@ -74,14 +78,10 @@
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="50dp">
 
             <TextView
                 android:text="75%"
@@ -111,14 +111,10 @@
                 android:textStyle="normal|bold" />
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="50dp">
 
             <TextView
                 android:text="60%"
@@ -149,14 +145,10 @@
 
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="50dp">
 
             <TextView
                 android:text="50%"
@@ -186,11 +178,6 @@
                 android:textStyle="normal|bold" />
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="1" />
 
     </LinearLayout>
 
