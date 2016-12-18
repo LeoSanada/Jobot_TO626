@@ -30,6 +30,9 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
     private EditText editTextMessage;
     private TextView textViewGet;
     private Button buttonSend;
+    private Integer msgcount;
+    private Integer msgcount2;
+
 
     ViewPager viewpagerTopmenu;
 
@@ -64,6 +67,7 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
         };
 
         buttonSend.setOnClickListener(this);
+        msgcount = 0;
 
     }
 
@@ -81,19 +85,22 @@ public class ChatActivity extends FragmentActivity implements View.OnClickListen
 
         Chat2 chat2 = new Chat2(sender, message);
         dataNewChat2.setValue(chat2);
-
+        msgcount = msgcount + 1;
+        msgcount2 = 0;
 
         //Show data but showing too much data
         DatabaseReference dataChatLoad = database.getReference();
         dataChatLoad.child("chat2").orderByKey().limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Chat2 chat2 = dataSnapshot.getValue(Chat2.class);
-                String val = textViewGet.getText().toString();
-                val = val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
-                textViewGet.setText(val);
-                textViewGet.setMovementMethod(new ScrollingMovementMethod());
-
+                msgcount2 = msgcount2 + 1;
+                if (msgcount==msgcount2) {
+                    Chat2 chat2 = dataSnapshot.getValue(Chat2.class);
+                    String val = textViewGet.getText().toString();
+                    val = val + "\n \n Message:" + chat2.message + "\n Sender: " + chat2.sender;
+                    textViewGet.setText(val);
+                    textViewGet.setMovementMethod(new ScrollingMovementMethod());
+                }
             }
 
 
