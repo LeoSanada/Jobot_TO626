@@ -1,6 +1,5 @@
 package com.example.ryo.jobot_to626;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -131,7 +129,7 @@ public class HistoryActivity extends FragmentActivity implements View.OnClickLis
                     startActivity(intent);
                 } else {
 
-                    Intent intent = new Intent(HistoryActivity.this, ScheduleProfActvity.class);
+                    Intent intent = new Intent(HistoryActivity.this, ScheduleProfActivity.class);
                     startActivity(intent);
                 }
             }

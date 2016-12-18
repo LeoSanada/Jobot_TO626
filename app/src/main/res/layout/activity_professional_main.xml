@@ -29,20 +29,20 @@
             android:textAlignment="center"
             android:id="@+id/textView5" />
 
-        <ImageView
+        <!--ImageView
+            android:src="@drawable/jobot_two"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="50dp"
-            android:src="@drawable/jobot_two"
             android:id="@+id/imageView6"
-            />
+            app:srcCompat="@drawable/jobot_two" /-->
 
 
         <Button
             android:text="Active Chats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="30dp"
             android:id="@+id/active_chats" />
 
         <Button
@@ -57,13 +57,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/schedule_new_call"
-            android:layout_marginTop="20dp"/>/>
+            android:layout_marginTop="20dp"/>
 
         <Button
             android:text="My Profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/professional_profile"
-            android:layout_marginTop="20dp"/>/>
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 </RelativeLayout>

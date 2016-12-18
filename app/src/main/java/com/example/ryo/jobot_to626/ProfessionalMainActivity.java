@@ -21,7 +21,7 @@ public class ProfessionalMainActivity extends Activity implements View.OnClickLi
         setContentView(R.layout.activity_professional_main);
 
 
-        active_chats= (Button) findViewById(R.id.active_chats);
+        active_chats = (Button) findViewById(R.id.active_chats);
         scheduled_calls = (Button) findViewById(R.id.scheduled_calls);
         new_call = (Button) findViewById(R.id.schedule_new_call);
         profile = (Button) findViewById(R.id.professional_profile);
@@ -36,22 +36,22 @@ public class ProfessionalMainActivity extends Activity implements View.OnClickLi
     public void onClick(View view) {
 
         if (view == active_chats) {
-            Intent intent = new Intent(this, HistoryActivity.class);
+            Intent intent = new Intent(ProfessionalMainActivity.this, HistoryActivity.class);
             startActivity(intent);
         }
 
         if (view == scheduled_calls) {
-            Intent intent = new Intent(this, LoginActivity.class);
+            Intent intent = new Intent(ProfessionalMainActivity.this, LoginActivity.class);
             startActivity(intent);
         }
 
         if (view == new_call) {
-            Intent intent = new Intent(this, ScheduleProfActvity.class);
+            Intent intent = new Intent(ProfessionalMainActivity.this, ScheduleProfActivity.class);
             startActivity(intent);
         }
 
         if (view == profile) {
-            Intent intent = new Intent(this, BasicActivity.class);
+            Intent intent = new Intent(ProfessionalMainActivity.this, BasicActivity.class);
             startActivity(intent);
         }
 

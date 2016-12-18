@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +18,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class ScheduleProfActvity extends Activity {
+public class ScheduleProfActivity extends Activity {
 
     DateFormat formatDateTime = DateFormat.getDateTimeInstance();
     //    DateFormat df = new
@@ -75,8 +74,8 @@ public class ScheduleProfActvity extends Activity {
             public void onClick(View v)
             {
 
-                Toast.makeText(ScheduleProfActvity.this, "Your Availability was Registered!", Toast.LENGTH_SHORT).show();
-                Intent newPage = new Intent(ScheduleProfActvity.this, ProfessionalMainActivity.class);
+                Toast.makeText(ScheduleProfActivity.this, "Your Availability was Registered!", Toast.LENGTH_SHORT).show();
+                Intent newPage = new Intent(ScheduleProfActivity.this, ProfessionalMainActivity.class);
                 startActivity(newPage);
             }
         });
